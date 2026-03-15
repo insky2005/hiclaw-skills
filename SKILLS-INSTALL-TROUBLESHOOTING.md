@@ -93,20 +93,20 @@ hiclaw-skills/
 
 ```bash
 # 格式
-skills install username/repo/skill-name
+skills add username/repo --skill skill-name
 
 # 示例
-skills install insky2005/hiclaw-skills/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ### 从单技能仓库安装
 
 ```bash
 # 格式
-skills install username/repo
+skills add username/repo --skill skill-name
 
 # 示例
-skills install insky2005/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ---
@@ -142,10 +142,10 @@ head -5 skills/conversation-knowledge/SKILL.md
 
 ```bash
 # 本地测试
-skills install ./hiclaw-skills/conversation-knowledge
+skills add ./hiclaw-skills --skill conversation-knowledge
 
 # 或从 GitHub
-skills install insky2005/hiclaw-skills/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ---
@@ -193,7 +193,7 @@ hiclaw-skills/
 
 ```bash
 # 现在应该可以正常安装
-skills install insky2005/hiclaw-skills/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ---

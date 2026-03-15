@@ -27,10 +27,10 @@
 
 ```bash
 # 从 HiClaw Skills Collection 安装
-skills install insky2005/hiclaw-skills/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 
 # 或使用 npx（如果支持）
-npx @hiclaw/skills install insky2005/hiclaw-skills/conversation-knowledge
+npx @hiclaw/skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 #### 单独安装

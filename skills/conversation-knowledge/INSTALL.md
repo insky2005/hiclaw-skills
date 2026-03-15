@@ -51,7 +51,7 @@ bash /root/.openclaw/skills/conversation-knowledge/scripts/init-knowledge.sh
 
 ```bash
 # 使用 HiClaw 的 skill 管理命令
-skills install conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ---

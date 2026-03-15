@@ -138,7 +138,7 @@ https://github.com/insky2005/hiclaw-skills
 
 ```bash
 # 安装技能（未来用户会使用这个命令）
-skills install insky2005/hiclaw-skills/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ---

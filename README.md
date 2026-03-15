@@ -21,7 +21,7 @@
 
 | 技能 | 描述 | 版本 | 安装命令 |
 |------|------|------|----------|
-| **[conversation-knowledge]**(skills/conversation-knowledge/) | 对话知识管理 - 智能记录、搜索、总结对话 | v1.0.0 | `skills install USER/hiclaw-skills/conversation-knowledge` |
+| **[conversation-knowledge]**(skills/conversation-knowledge/) | 对话知识管理 - 智能记录、搜索、总结对话 | v1.0.0 | `skills add USER/hiclaw-skills --skill conversation-knowledge` |
 
 ### 即将推出
 
@@ -38,10 +38,10 @@
 
 ```bash
 # 从 GitHub 安装
-skills install insky2005/hiclaw-skills/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 
 # 或使用 npx（如果支持）
-npx @hiclaw/skills install insky2005/hiclaw-skills/conversation-knowledge
+npx @hiclaw/skills add insky2005/hiclaw-skills --skill conversation-knowledge
 
 # 或手动安装
 git clone https://github.com/insky2005/hiclaw-skills.git

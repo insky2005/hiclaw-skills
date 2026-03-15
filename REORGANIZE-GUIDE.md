@@ -108,14 +108,14 @@ git push -u origin main
 
 ```bash
 # 从集合安装
-skills install insky2005/hiclaw-skills/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ### 单技能仓库（旧）
 
 ```bash
 # 单独安装
-skills install insky2005/conversation-knowledge
+skills add insky2005/hiclaw-skills --skill conversation-knowledge
 ```
 
 ---
