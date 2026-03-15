@@ -1,0 +1,43 @@
+# HiClaw/OpenClaw specific
+openclaw.json
+state.json
+workers-registry.json
+trusted-contacts.json
+primary-channel.json
+
+# Internal files
+README.md.internal
+MIGRATION.md
+
+# Runtime data
+*.log
+.cache/
+__pycache__/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sensitive data (DO NOT COMMIT)
+*.key
+*.pem
+*.crt
+secrets/
+credentials/
+
+# Test files
+test/
+tests/
+*.test.js
+*.test.sh
+
+# Build artifacts
+dist/
+build/

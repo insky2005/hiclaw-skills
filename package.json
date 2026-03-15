@@ -1,0 +1,30 @@
+{
+  "name": "hiclaw-skills-collection",
+  "version": "1.0.0",
+  "description": "HiClaw Skills Collection - Smart conversation management and more",
+  "keywords": [
+    "hiclaw",
+    "skills",
+    "ai-agent",
+    "conversation",
+    "knowledge-management",
+    "productivity"
+  ],
+  "license": "MIT",
+  "author": "Your Name",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/hiclaw-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/hiclaw-skills/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/hiclaw-skills#readme",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "echo \"No linting configured\" && exit 0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
