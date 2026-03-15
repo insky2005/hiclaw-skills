@@ -12,19 +12,26 @@ find_project_dir() {
   local depth=0
   
   while [ $depth -lt $max_depth ]; do
-    local dir_name=$(basename "$current_dir")
-    local parent_dir=$(dirname "$current_dir")
+    local dir_name
+    dir_name=$(basename "$current_dir")
     
     if [ "$dir_name" = ".agent" ] || [ "$dir_name" = ".openclaw" ]; then
+      local parent_dir
+      parent_dir=$(dirname "$current_dir")
       echo "$parent_dir"
       return 0
     fi
     
-    current_dir="$parent_dir"
+    current_dir=$(dirname "$current_dir")
     depth=$((depth + 1))
   done
   
-  echo "$(dirname "$(dirname "$(dirname "$SCRIPT_DIR")")")"
+  # Fallback: 3 levels up
+  local level1 level2 level3
+  level1=$(dirname "$SCRIPT_DIR")
+  level2=$(dirname "$level1")
+  level3=$(dirname "$level2")
+  echo "$level3"
 }
 
 test_case() {

@@ -46,7 +46,7 @@ get_user_input() {
   fi
 }
 
-# Find project directory (parent of .agent/skills or .openclaw/skills)
+# Find project directory (parent of .agent or .openclaw)
 # Skill is typically installed at: <project-dir>/.agent/skills/conversation-knowledge/
 # We want to store knowledge at: <project-dir>/.conversation-knowledge/
 find_project_dir() {
@@ -56,24 +56,30 @@ find_project_dir() {
   
   # Traverse up the directory tree
   while [ $depth -lt $max_depth ]; do
-    local dir_name=$(basename "$current_dir")
-    local parent_dir=$(dirname "$current_dir")
+    local dir_name
+    dir_name=$(basename "$current_dir")
     
     # Check if current directory is .agent or .openclaw
     if [ "$dir_name" = ".agent" ] || [ "$dir_name" = ".openclaw" ]; then
-      # Project directory is the parent of .agent or .openclaw
+      # Found it! Project directory is the parent of .agent/.openclaw
+      local parent_dir
+      parent_dir=$(dirname "$current_dir")
       echo "$parent_dir"
       return 0
     fi
     
     # Move up one directory
-    current_dir="$parent_dir"
+    current_dir=$(dirname "$current_dir")
     depth=$((depth + 1))
   done
   
-  # Fallback: use two levels up from script directory
-  # (assuming script is in skills/conversation-knowledge/scripts/)
-  echo "$(dirname "$(dirname "$(dirname "$SCRIPT_DIR")")")"
+  # Fallback: go up 3 levels from scripts/
+  # scripts/ -> conversation-knowledge/ -> skills/ -> project/
+  local level1 level2 level3
+  level1=$(dirname "$SCRIPT_DIR")
+  level2=$(dirname "$level1")
+  level3=$(dirname "$level2")
+  echo "$level3"
 }
 
 PROJECT_DIR=$(find_project_dir)
