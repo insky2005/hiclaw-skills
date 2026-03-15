@@ -15,7 +15,9 @@ This skill maintains a searchable knowledge base of conversations between the Ma
 
 **Quick Start**: `/help` or `/帮助`
 
-**Command Format**: `/command` (supports Chinese & English)
+**Command Format**: 
+- Slash commands: `/command` (supports Chinese & English)
+- Natural language: "初始化知识库", "记录对话", "搜索话题" (context-aware)
 
 **Requirements**:
 - HiClaw >= 1.0.0
@@ -24,13 +26,52 @@ This skill maintains a searchable knowledge base of conversations between the Ma
 
 ---
 
+## Natural Language Triggers
+
+This skill responds to natural language commands:
+
+| User Says | Action |
+|-----------|--------|
+| "初始化知识库" | Run `init-knowledge.sh` |
+| "开始记录" | Load or create topic context |
+| "保存这段对话" | Record current conversation |
+| "搜索关于 XX 的讨论" | Search knowledge base |
+| "列出最近的对话" | List recent conversations |
+| "总结这个话题" | Summarize topic |
+| "导出为 Markdown" | Export conversations |
+
+**Context-Aware**: After loading a topic with `/加载 话题名`, subsequent `/记录` commands auto-use that topic.
+
+---
+
 ## Step 1: Initialize Knowledge Base
 
-Run once on first use:
+**Trigger**: First-time use or when admin says "初始化知识库"
+
+### Method 1: Natural Language (Recommended)
+
+When user says: **"初始化知识库"** or **"init knowledge base"**
+
+The Manager automatically runs the initialization script.
+
+### Method 2: Slash Command
+
+```
+/init
+/初始化
+```
+
+### Method 3: Direct Script
 
 ```bash
 bash /root/.openclaw/skills/conversation-knowledge/scripts/init-knowledge.sh
 ```
+
+**What it does**:
+1. Detects project directory (`.agent`, `.agents`, or `.openclaw`)
+2. Prompts for knowledge storage path
+3. Creates directory structure
+4. Generates configuration file
 
 Creates:
 ```
@@ -51,7 +92,16 @@ shared/knowledge/conversations/
 
 **Trigger**: Admin says "save this", "remember this", or end of significant discussion.
 
-### 2.1 Using Slash Commands (Recommended)
+### 2.1 Natural Language (Easiest)
+
+User says: **"保存这段对话，讨论了 XX"**
+
+Manager automatically:
+1. Checks if topic context is loaded
+2. Runs `/记录 --summary "讨论了 XX"`
+3. Records to appropriate topic
+
+### 2.2 Slash Commands (Explicit)
 
 ```
 /record --topic "{topic-name}" --summary "{brief-summary}" --channel "{channel-type}"

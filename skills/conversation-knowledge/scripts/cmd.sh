@@ -158,29 +158,30 @@ shift
 # Normalize command
 CMD_NAME=$(echo "$CMD" | sed 's/^\///' | tr '[:upper:]' '[:lower:]')
 
-# Fix for Chinese command aliases
+# Fix for Chinese command aliases (including natural language variations)
 case "$CMD_NAME" in
   列表 | 列出) CMD_NAME="list" ;;
-  总结 | 摘要) CMD_NAME="summarize" ;;
-  导出) CMD_NAME="export" ;;
-  搜索 | 查找) CMD_NAME="search" ;;
-  加载 | 打开) CMD_NAME="load" ;;
-  记录 | 保存) CMD_NAME="record" ;;
+  总结 | 摘要 | 汇总) CMD_NAME="summarize" ;;
+  导出 | 输出) CMD_NAME="export" ;;
+  搜索 | 查找 | 查询) CMD_NAME="search" ;;
+  加载 | 打开 | 启动) CMD_NAME="load" ;;
+  记录 | 保存 | 存储 | 记下) CMD_NAME="record" ;;
   切换 | 渠道) CMD_NAME="switch" ;;
-  话题 | 管理) CMD_NAME="topics" ;;
-  快速参考 | 参考) CMD_NAME="quickref" ;;
-  初始化) CMD_NAME="init" ;;
-  帮助) CMD_NAME="help" ;;
-  最近) CMD_NAME="recent" ;;
+  话题 | 管理 | 整理) CMD_NAME="topics" ;;
+  快速参考 | 参考 | 简参) CMD_NAME="quickref" ;;
+  初始化 | 初始 | 开始使用) CMD_NAME="init" ;;
+  帮助 | 帮忙) CMD_NAME="help" ;;
+  最近 | 近期) CMD_NAME="recent" ;;
+  知识库 | 知识管理) CMD_NAME="help" ;;  # Help for knowledge base
 esac
 
 # Route to appropriate script
 case "$CMD_NAME" in
-  init|初始化)
+  init|初始化 | 初始 | 开始使用 | 知识库 | 知识管理)
     bash "$SCRIPT_DIR/init-knowledge.sh" "$@"
     ;;
   
-  help|帮助|h|?)
+  help|帮助 | 帮忙|h|?)
     show_help
     ;;
   
