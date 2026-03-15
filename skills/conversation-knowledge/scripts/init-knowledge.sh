@@ -88,15 +88,18 @@ echo ""
 echo "Please provide the directory path where conversation knowledge will be stored."
 echo ""
 echo "Recommendations:"
-echo "  • Use a persistent location (not in temporary directories)"
-echo "  • Use a path that will be backed up regularly"
-echo "  • For HiClaw: /root/hiclaw-fs/shared/knowledge/conversations/"
+echo "  • Default: .conversation-knowledge/ (in current project directory)"
+echo "  • For shared access: /root/hiclaw-fs/shared/knowledge/conversations/"
 echo "  • For standalone: ~/.conversation-knowledge/"
 echo ""
 
+# Get the directory where the skill is installed
+SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+DEFAULT_KNOWLEDGE_DIR="$SKILL_DIR/.conversation-knowledge"
+
 KNOWLEDGE_DIR=""
 while [ -z "$KNOWLEDGE_DIR" ]; do
-  KNOWLEDGE_DIR=$(get_user_input "Knowledge directory path" "/root/hiclaw-fs/shared/knowledge/conversations")
+  KNOWLEDGE_DIR=$(get_user_input "Knowledge directory path" "$DEFAULT_KNOWLEDGE_DIR")
   
   if [ -z "$KNOWLEDGE_DIR" ]; then
     echo "❌ Path cannot be empty. Please try again."

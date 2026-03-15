@@ -145,7 +145,18 @@ nano scripts/.knowledge-config.json
 
 ## 💡 推荐路径
 
-### HiClaw 环境
+### 默认（推荐）
+
+```bash
+<skill-directory>/.conversation-knowledge/
+```
+
+**优点**：
+- ✅ 默认配置，开箱即用
+- ✅ 与技能一起安装和管理
+- ✅ 适合个人使用
+
+### HiClaw 共享环境
 
 ```bash
 /root/hiclaw-fs/shared/knowledge/conversations/
@@ -244,7 +255,21 @@ grep "KNOWLEDGE_DIR" scripts/*.sh
 
 ## 📝 配置示例
 
-### 示例 1：HiClaw 默认配置
+### 示例 1：默认配置（技能目录下）
+
+```json
+{
+  "knowledge_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge",
+  "topics_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge/topics",
+  "sessions_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge/sessions",
+  "exports_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge/exports",
+  "initialized_at": "2026-03-15T18:00:00+08:00",
+  "version": "1.1.2",
+  "script_dir": "/home/user/.openclaw/skills/conversation-knowledge/scripts"
+}
+```
+
+### 示例 2：HiClaw 共享配置
 
 ```json
 {
@@ -253,12 +278,12 @@ grep "KNOWLEDGE_DIR" scripts/*.sh
   "sessions_dir": "/root/hiclaw-fs/shared/knowledge/conversations/sessions",
   "exports_dir": "/root/hiclaw-fs/shared/knowledge/conversations/exports",
   "initialized_at": "2026-03-15T18:00:00+08:00",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "script_dir": "/opt/hiclaw/agent/skills/conversation-knowledge/scripts"
 }
 ```
 
-### 示例 2：独立使用配置
+### 示例 3：独立使用配置
 
 ```json
 {
@@ -267,7 +292,7 @@ grep "KNOWLEDGE_DIR" scripts/*.sh
   "sessions_dir": "/home/user/.conversation-knowledge/sessions",
   "exports_dir": "/home/user/.conversation-knowledge/exports",
   "initialized_at": "2026-03-15T18:00:00+08:00",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "script_dir": "/home/user/.openclaw/skills/conversation-knowledge/scripts"
 }
 ```

@@ -74,7 +74,7 @@ bash /root/.openclaw/skills/conversation-knowledge/scripts/init-knowledge.sh
 **初始化流程**：
 
 1. 会提示输入知识库存储路径
-2. 默认路径：`/root/hiclaw-fs/shared/knowledge/conversations`
+2. 默认路径：`<skill-directory>/.conversation-knowledge/`（技能安装目录下的隐藏文件夹）
 3. 确认后自动创建目录结构
 4. 生成配置文件：`scripts/.knowledge-config.json`
 
