@@ -19,8 +19,33 @@ echo "   Level 3: $(basename "$(dirname "$(dirname "$(dirname "$SCRIPT_DIR")")")
 echo "   Level 4: $(basename "$(dirname "$(dirname "$(dirname "$(dirname "$SCRIPT_DIR")")")")")"
 echo ""
 
-# Load find_project_dir function from init-knowledge.sh
-source <(grep -A 50 "^find_project_dir()" "$(dirname "$0")/init-knowledge.sh" | head -55)
+# Define find_project_dir function directly (more reliable than sourcing)
+find_project_dir() {
+  local current_dir="$SCRIPT_DIR"
+  local max_depth=10
+  local depth=0
+  
+  while [ $depth -lt $max_depth ]; do
+    local dir_name
+    dir_name=$(basename "$current_dir")
+    
+    if [ "$dir_name" = ".agent" ] || [ "$dir_name" = ".agents" ] || [ "$dir_name" = ".openclaw" ]; then
+      local parent_dir
+      parent_dir=$(dirname "$current_dir")
+      echo "$parent_dir"
+      return 0
+    fi
+    
+    current_dir=$(dirname "$current_dir")
+    depth=$((depth + 1))
+  done
+  
+  local level1 level2 level3
+  level1=$(dirname "$SCRIPT_DIR")
+  level2=$(dirname "$level1")
+  level3=$(dirname "$level2")
+  echo "$level3"
+}
 
 PROJECT_DIR=$(find_project_dir)
 DEFAULT_KNOWLEDGE_DIR="$PROJECT_DIR/.conversation-knowledge"

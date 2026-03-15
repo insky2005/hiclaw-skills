@@ -46,8 +46,8 @@ get_user_input() {
   fi
 }
 
-# Find project directory (parent of .agent or .openclaw)
-# Skill is typically installed at: <project-dir>/.agent/skills/conversation-knowledge/
+# Find project directory (parent of .agent, .agents, or .openclaw)
+# Skill is typically installed at: <project-dir>/.agent(s)/skills/conversation-knowledge/
 # We want to store knowledge at: <project-dir>/.conversation-knowledge/
 find_project_dir() {
   local current_dir="$SCRIPT_DIR"
@@ -59,9 +59,9 @@ find_project_dir() {
     local dir_name
     dir_name=$(basename "$current_dir")
     
-    # Check if current directory is .agent or .openclaw
-    if [ "$dir_name" = ".agent" ] || [ "$dir_name" = ".openclaw" ]; then
-      # Found it! Project directory is the parent of .agent/.openclaw
+    # Check if current directory is .agent, .agents, or .openclaw
+    if [ "$dir_name" = ".agent" ] || [ "$dir_name" = ".agents" ] || [ "$dir_name" = ".openclaw" ]; then
+      # Found it! Project directory is the parent of .agent/.agents/.openclaw
       local parent_dir
       parent_dir=$(dirname "$current_dir")
       echo "$parent_dir"
