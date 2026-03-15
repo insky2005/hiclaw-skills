@@ -15,7 +15,7 @@
 ```bash
 # 1. 克隆仓库
 cd /root
-git clone https://github.com/YOUR_USERNAME/conversation-knowledge.git .openclaw/skills/conversation-knowledge
+git clone https://github.com/insky2005/conversation-knowledge.git .openclaw/skills/conversation-knowledge
 
 # 2. 创建符号链接到 HiClaw skills 目录
 ln -s /root/.openclaw/skills/conversation-knowledge /opt/hiclaw/agent/skills/conversation-knowledge

@@ -11,15 +11,15 @@
     "productivity"
   ],
   "license": "MIT",
-  "author": "Your Name",
+  "author": "insky2005",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/hiclaw-skills.git"
+    "url": "https://github.com/insky2005/hiclaw-skills.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/hiclaw-skills/issues"
+    "url": "https://github.com/insky2005/hiclaw-skills/issues"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/hiclaw-skills#readme",
+  "homepage": "https://github.com/insky2005/hiclaw-skills#readme",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
     "lint": "echo \"No linting configured\" && exit 0"

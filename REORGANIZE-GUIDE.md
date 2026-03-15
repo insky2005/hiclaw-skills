@@ -74,7 +74,7 @@ License: MIT"
 git branch -M main
 
 # 4. 在 GitHub 创建仓库后，添加远程
-git remote add origin https://github.com/YOUR_USERNAME/hiclaw-skills.git
+git remote add origin https://github.com/insky2005/hiclaw-skills.git
 
 # 5. 推送
 git push -u origin main
@@ -91,12 +91,12 @@ git push -u origin main
 ```bash
 # 多技能仓库
 cd /root/manager-workspace/hiclaw-skills
-git remote add origin https://github.com/YOUR_USERNAME/hiclaw-skills.git
+git remote add origin https://github.com/insky2005/hiclaw-skills.git
 git push -u origin main
 
 # 单技能仓库（可选）
 cd /root/manager-workspace/hiclaw-skills/skills/conversation-knowledge
-git remote add origin https://github.com/YOUR_USERNAME/conversation-knowledge.git
+git remote add origin https://github.com/insky2005/conversation-knowledge.git
 git push -u origin main
 ```
 
@@ -108,14 +108,14 @@ git push -u origin main
 
 ```bash
 # 从集合安装
-skills install YOUR_USERNAME/hiclaw-skills/conversation-knowledge
+skills install insky2005/hiclaw-skills/conversation-knowledge
 ```
 
 ### 单技能仓库（旧）
 
 ```bash
 # 单独安装
-skills install YOUR_USERNAME/conversation-knowledge
+skills install insky2005/conversation-knowledge
 ```
 
 ---
@@ -190,7 +190,7 @@ git push
 
 3. **推送代码**
    ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/hiclaw-skills.git
+   git remote add origin https://github.com/insky2005/hiclaw-skills.git
    git push -u origin main
    ```
 

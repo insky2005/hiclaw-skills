@@ -27,7 +27,7 @@
 
 ```bash
 # 克隆或复制本仓库
-git clone https://github.com/YOUR_USERNAME/conversation-knowledge.git
+git clone https://github.com/insky2005/conversation-knowledge.git
 
 # 链接到 HiClaw skills 目录
 ln -s /path/to/conversation-knowledge /root/.openclaw/skills/conversation-knowledge

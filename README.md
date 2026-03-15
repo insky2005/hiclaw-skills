@@ -38,13 +38,13 @@
 
 ```bash
 # 从 GitHub 安装
-skills install YOUR_USERNAME/hiclaw-skills/conversation-knowledge
+skills install insky2005/hiclaw-skills/conversation-knowledge
 
 # 或使用 npx（如果支持）
-npx @hiclaw/skills install YOUR_USERNAME/hiclaw-skills/conversation-knowledge
+npx @hiclaw/skills install insky2005/hiclaw-skills/conversation-knowledge
 
 # 或手动安装
-git clone https://github.com/YOUR_USERNAME/hiclaw-skills.git
+git clone https://github.com/insky2005/hiclaw-skills.git
 ln -s hiclaw-skills/skills/conversation-knowledge ~/.openclaw/skills/conversation-knowledge
 ```
 
@@ -132,7 +132,7 @@ skills/your-skill/
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/hiclaw-skills.git
+git clone https://github.com/insky2005/hiclaw-skills.git
 cd hiclaw-skills
 
 # 链接到 HiClaw
@@ -180,9 +180,9 @@ MIT License - 详见每个技能的 LICENSE 文件
 
 ## 🔗 链接
 
-- **GitHub**: https://github.com/YOUR_USERNAME/hiclaw-skills
+- **GitHub**: https://github.com/insky2005/hiclaw-skills
 - **HiClaw 文档**: https://github.com/hiclaw/hiclaw
-- **问题反馈**: https://github.com/YOUR_USERNAME/hiclaw-skills/issues
+- **问题反馈**: https://github.com/insky2005/hiclaw-skills/issues
 
 ---
 

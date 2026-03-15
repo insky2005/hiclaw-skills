@@ -27,17 +27,17 @@
 
 ```bash
 # 从 HiClaw Skills Collection 安装
-skills install YOUR_USERNAME/hiclaw-skills/conversation-knowledge
+skills install insky2005/hiclaw-skills/conversation-knowledge
 
 # 或使用 npx（如果支持）
-npx @hiclaw/skills install YOUR_USERNAME/hiclaw-skills/conversation-knowledge
+npx @hiclaw/skills install insky2005/hiclaw-skills/conversation-knowledge
 ```
 
 #### 单独安装
 
 ```bash
 # 克隆单技能仓库
-git clone https://github.com/YOUR_USERNAME/conversation-knowledge.git
+git clone https://github.com/insky2005/conversation-knowledge.git
 
 # 链接到 HiClaw skills 目录
 ln -s /path/to/conversation-knowledge /root/.openclaw/skills/conversation-knowledge
@@ -47,7 +47,7 @@ ln -s /path/to/conversation-knowledge /root/.openclaw/skills/conversation-knowle
 
 ```bash
 # 克隆整个技能集合
-git clone https://github.com/YOUR_USERNAME/hiclaw-skills.git
+git clone https://github.com/insky2005/hiclaw-skills.git
 
 # 链接单个技能
 ln -s hiclaw-skills/skills/conversation-knowledge ~/.openclaw/skills/conversation-knowledge

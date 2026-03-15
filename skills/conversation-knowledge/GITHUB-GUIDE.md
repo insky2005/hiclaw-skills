@@ -82,8 +82,8 @@ git branch -M main
 ### 步骤 4：关联远程仓库
 
 ```bash
-# 添加远程仓库（替换 YOUR_USERNAME）
-git remote add origin https://github.com/YOUR_USERNAME/conversation-knowledge.git
+# 添加远程仓库（替换 insky2005）
+git remote add origin https://github.com/insky2005/conversation-knowledge.git
 
 # 验证远程
 git remote -v
@@ -98,7 +98,7 @@ git remote -v
 git push -u origin main
 
 # 如果遇到认证问题，使用 Token：
-# git push https://YOUR_GITHUB_TOKEN@github.com/YOUR_USERNAME/conversation-knowledge.git main
+# git push https://YOUR_GITHUB_TOKEN@github.com/insky2005/conversation-knowledge.git main
 ```
 
 ---
@@ -109,7 +109,7 @@ git push -u origin main
 
 1. 在 GitHub 上点击 README.md
 2. 点击编辑按钮（铅笔图标）
-3. 替换 `YOUR_USERNAME` 为你的 GitHub 用户名
+3. 替换 `insky2005` 为你的 GitHub 用户名
 4. 替换仓库 URL 为你的实际 URL
 5. 提交更改
 
@@ -149,9 +149,9 @@ git push origin --tags
 在 README 中添加：
 
 ```markdown
-[![Stars](https://img.shields.io/github/stars/YOUR_USERNAME/conversation-knowledge)](https://github.com/YOUR_USERNAME/conversation-knowledge/stargazers)
-[![Forks](https://img.shields.io/github/forks/YOUR_USERNAME/conversation-knowledge)](https://github.com/YOUR_USERNAME/conversation-knowledge/network/members)
-[![Issues](https://img.shields.io/github/issues/YOUR_USERNAME/conversation-knowledge)](https://github.com/YOUR_USERNAME/conversation-knowledge/issues)
+[![Stars](https://img.shields.io/github/stars/insky2005/conversation-knowledge)](https://github.com/insky2005/conversation-knowledge/stargazers)
+[![Forks](https://img.shields.io/github/forks/insky2005/conversation-knowledge)](https://github.com/insky2005/conversation-knowledge/network/members)
+[![Issues](https://img.shields.io/github/issues/insky2005/conversation-knowledge)](https://github.com/insky2005/conversation-knowledge/issues)
 ```
 
 ---
@@ -234,7 +234,7 @@ git push origin main
 
 **A:** 使用 GitHub Token 代替密码：
 ```bash
-git push https://YOUR_USERNAME:YOUR_TOKEN@github.com/YOUR_USERNAME/conversation-knowledge.git
+git push https://insky2005:YOUR_TOKEN@github.com/insky2005/conversation-knowledge.git
 ```
 
 ### Q: 如何更新已发布的技能？
