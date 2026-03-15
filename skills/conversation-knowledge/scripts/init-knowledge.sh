@@ -136,7 +136,7 @@ echo "Detected project directory: $PROJECT_DIR"
 echo ""
 echo "Recommendations:"
 echo "  • Default: .conversation-knowledge/ (in project directory: $DEFAULT_KNOWLEDGE_DIR)"
-echo "  • For shared access: /root/hiclaw-fs/shared/knowledge/conversations/"
+echo "  • For shared access: /root/host-home/.conversation-knowledge/"
 echo "  • For standalone: ~/.conversation-knowledge/"
 echo ""
 
