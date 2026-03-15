@@ -1,11 +1,23 @@
 #!/bin/bash
 # Context Tracker - Track recent topic loads for smart recording
+# Updated to use config file
 
 set -e
 
-CONTEXT_FILE="/root/hiclaw-fs/shared/knowledge/conversations/.context.json"
-KNOWLEDGE_DIR="/root/hiclaw-fs/shared/knowledge/conversations"
-INDEX_FILE="$KNOWLEDGE_DIR/index.json"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_FILE="$SCRIPT_DIR/.knowledge-config.json"
+
+# Get knowledge directory from config
+if [ -f "$CONFIG_FILE" ] && command -v jq &> /dev/null; then
+  KNOWLEDGE_DIR=$(jq -r '.knowledge_dir' "$CONFIG_FILE" 2>/dev/null)
+  if [ -z "$KNOWLEDGE_DIR" ] || [ "$KNOWLEDGE_DIR" = "null" ]; then
+    KNOWLEDGE_DIR="/root/hiclaw-fs/shared/knowledge/conversations"
+  fi
+else
+  KNOWLEDGE_DIR="/root/hiclaw-fs/shared/knowledge/conversations"
+fi
+
+CONTEXT_FILE="$KNOWLEDGE_DIR/.context.json"
 
 # Ensure directory exists
 mkdir -p "$KNOWLEDGE_DIR"
@@ -25,6 +37,7 @@ case "$ACTION" in
     
     # Get topic metadata
     SLUG=""
+    INDEX_FILE="$KNOWLEDGE_DIR/index.json"
     if [ -f "$INDEX_FILE" ] && command -v jq &> /dev/null; then
       SLUG=$(jq -r --arg name "$TOPIC_NAME" '.topics[] | select(.name == $name) | .slug' "$INDEX_FILE" 2>/dev/null)
     fi

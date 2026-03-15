@@ -65,8 +65,23 @@ ls -la /root/.openclaw/skills/conversation-knowledge/scripts/
 # 2. 测试命令
 bash /root/.openclaw/skills/conversation-knowledge/scripts/cmd.sh /帮助
 
-# 3. 初始化知识库
+# 3. 初始化知识库（交互式配置）
+
+```bash
 bash /root/.openclaw/skills/conversation-knowledge/scripts/init-knowledge.sh
+```
+
+**初始化流程**：
+
+1. 会提示输入知识库存储路径
+2. 默认路径：`/root/hiclaw-fs/shared/knowledge/conversations`
+3. 确认后自动创建目录结构
+4. 生成配置文件：`scripts/.knowledge-config.json`
+
+**重复初始化**：
+- 如果已初始化，会显示当前配置
+- 询问是否继续重新初始化
+- 输入 `y` 继续，或 `N` 取消
 
 # 4. 测试基本功能
 bash /root/.openclaw/skills/conversation-knowledge/scripts/cmd.sh /列表
