@@ -73,10 +73,15 @@ bash /root/.openclaw/skills/conversation-knowledge/scripts/init-knowledge.sh
 
 **初始化流程**：
 
-1. 会提示输入知识库存储路径
-2. 默认路径：`<skill-directory>/.conversation-knowledge/`（技能安装目录下的隐藏文件夹）
-3. 确认后自动创建目录结构
-4. 生成配置文件：`scripts/.knowledge-config.json`
+1. 自动检测项目目录（`.agent` 或 `.openclaw` 的父目录）
+2. 会提示输入知识库存储路径
+3. 默认路径：`<project-directory>/.conversation-knowledge/`（项目目录下的隐藏文件夹）
+4. 确认后自动创建目录结构
+5. 生成配置文件：`scripts/.knowledge-config.json`
+
+**示例**：
+- 技能安装在：`/home/user/my-project/.agent/skills/conversation-knowledge/`
+- 默认知识库：`/home/user/my-project/.conversation-knowledge/`
 
 **重复初始化**：
 - 如果已初始化，会显示当前配置

@@ -145,16 +145,22 @@ nano scripts/.knowledge-config.json
 
 ## 💡 推荐路径
 
-### 默认（推荐）
+### 默认（推荐 - 自动检测）
 
 ```bash
-<skill-directory>/.conversation-knowledge/
+<project-directory>/.conversation-knowledge/
 ```
 
+**自动检测逻辑**：
+- 技能安装在：`<project-directory>/.agent/skills/conversation-knowledge/`
+- 或：`<project-directory>/.openclaw/skills/conversation-knowledge/`
+- 知识库默认：`<project-directory>/.conversation-knowledge/`
+
 **优点**：
-- ✅ 默认配置，开箱即用
-- ✅ 与技能一起安装和管理
-- ✅ 适合个人使用
+- ✅ 自动检测项目目录
+- ✅ 与项目一起管理
+- ✅ 适合个人和团队使用
+- ✅ 知识库独立于技能目录
 
 ### HiClaw 共享环境
 
@@ -255,19 +261,24 @@ grep "KNOWLEDGE_DIR" scripts/*.sh
 
 ## 📝 配置示例
 
-### 示例 1：默认配置（技能目录下）
+### 示例 1：默认配置（项目目录下）
 
 ```json
 {
-  "knowledge_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge",
-  "topics_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge/topics",
-  "sessions_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge/sessions",
-  "exports_dir": "/home/user/.openclaw/skills/conversation-knowledge/.conversation-knowledge/exports",
+  "knowledge_dir": "/home/user/my-project/.conversation-knowledge",
+  "topics_dir": "/home/user/my-project/.conversation-knowledge/topics",
+  "sessions_dir": "/home/user/my-project/.conversation-knowledge/sessions",
+  "exports_dir": "/home/user/my-project/.conversation-knowledge/exports",
   "initialized_at": "2026-03-15T18:00:00+08:00",
   "version": "1.1.2",
-  "script_dir": "/home/user/.openclaw/skills/conversation-knowledge/scripts"
+  "script_dir": "/home/user/my-project/.agent/skills/conversation-knowledge/scripts"
 }
 ```
+
+**说明**：
+- 项目目录：`/home/user/my-project/`
+- 技能位置：`/home/user/my-project/.agent/skills/conversation-knowledge/`
+- 知识库：`/home/user/my-project/.conversation-knowledge/`
 
 ### 示例 2：HiClaw 共享配置
 

@@ -46,6 +46,39 @@ get_user_input() {
   fi
 }
 
+# Find project directory (parent of .agent/skills or .openclaw/skills)
+# Skill is typically installed at: <project-dir>/.agent/skills/conversation-knowledge/
+# We want to store knowledge at: <project-dir>/.conversation-knowledge/
+find_project_dir() {
+  local current_dir="$SCRIPT_DIR"
+  local max_depth=10
+  local depth=0
+  
+  # Traverse up the directory tree
+  while [ $depth -lt $max_depth ]; do
+    local dir_name=$(basename "$current_dir")
+    local parent_dir=$(dirname "$current_dir")
+    
+    # Check if current directory is .agent or .openclaw
+    if [ "$dir_name" = ".agent" ] || [ "$dir_name" = ".openclaw" ]; then
+      # Project directory is the parent of .agent or .openclaw
+      echo "$parent_dir"
+      return 0
+    fi
+    
+    # Move up one directory
+    current_dir="$parent_dir"
+    depth=$((depth + 1))
+  done
+  
+  # Fallback: use two levels up from script directory
+  # (assuming script is in skills/conversation-knowledge/scripts/)
+  echo "$(dirname "$(dirname "$(dirname "$SCRIPT_DIR")")")"
+}
+
+PROJECT_DIR=$(find_project_dir)
+DEFAULT_KNOWLEDGE_DIR="$PROJECT_DIR/.conversation-knowledge"
+
 # Check if already initialized
 if check_initialized; then
   echo "⚠️  Warning: Knowledge base appears to be already initialized!"
@@ -87,15 +120,13 @@ echo "--------------------------------------"
 echo ""
 echo "Please provide the directory path where conversation knowledge will be stored."
 echo ""
+echo "Detected project directory: $PROJECT_DIR"
+echo ""
 echo "Recommendations:"
-echo "  • Default: .conversation-knowledge/ (in current project directory)"
+echo "  • Default: .conversation-knowledge/ (in project directory: $DEFAULT_KNOWLEDGE_DIR)"
 echo "  • For shared access: /root/hiclaw-fs/shared/knowledge/conversations/"
 echo "  • For standalone: ~/.conversation-knowledge/"
 echo ""
-
-# Get the directory where the skill is installed
-SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DEFAULT_KNOWLEDGE_DIR="$SKILL_DIR/.conversation-knowledge"
 
 KNOWLEDGE_DIR=""
 while [ -z "$KNOWLEDGE_DIR" ]; do
