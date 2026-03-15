@@ -85,6 +85,12 @@ find_project_dir() {
 PROJECT_DIR=$(find_project_dir)
 DEFAULT_KNOWLEDGE_DIR="$PROJECT_DIR/.conversation-knowledge"
 
+# Debug: Show detection info
+echo "🔍 Detecting project directory..."
+echo "   SCRIPT_DIR: $SCRIPT_DIR"
+echo "   PROJECT_DIR: $PROJECT_DIR"
+echo ""
+
 # Check if already initialized
 if check_initialized; then
   echo "⚠️  Warning: Knowledge base appears to be already initialized!"
