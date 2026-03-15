@@ -9,13 +9,18 @@ description: Record, organize, and retrieve conversation knowledge across channe
 
 This skill maintains a searchable knowledge base of conversations between the Manager and human admin, organized by topic and accessible across all channels (DingTalk, Telegram, Discord, Matrix, etc.).
 
-**Storage**: `/root/hiclaw-fs/shared/knowledge/conversations/` (synced to MinIO)
+**Storage**: Configurable via `.knowledge-config.json` (default: `/root/hiclaw-fs/shared/knowledge/conversations/`)
 
-**Skill Location**: `/root/manager-workspace/.openclaw/skills/conversation-knowledge/` (persistent across container rebuilds)
+**Skill Location**: `skills/conversation-knowledge/` in repository
 
 **Quick Start**: `/help` or `/帮助`
 
 **Command Format**: `/command` (supports Chinese & English)
+
+**Requirements**:
+- HiClaw >= 1.0.0
+- Bash >= 4.0
+- jq (optional, for better JSON handling)
 
 ---
 

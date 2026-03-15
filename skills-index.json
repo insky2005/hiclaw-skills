@@ -1,0 +1,70 @@
+{
+  "name": "hiclaw-skills-collection",
+  "version": "1.1.0",
+  "description": "HiClaw Skills Collection - Smart conversation management and more",
+  "repository": "https://github.com/insky2005/hiclaw-skills",
+  "skills": [
+    {
+      "name": "conversation-knowledge",
+      "displayName": "Conversation Knowledge",
+      "description": "Record, organize, and retrieve conversation knowledge across channels",
+      "version": "1.1.0",
+      "path": "skills/conversation-knowledge",
+      "entryPoint": "scripts/cmd.sh",
+      "author": "insky2005",
+      "license": "MIT",
+      "keywords": [
+        "conversation",
+        "knowledge-management",
+        "recording",
+        "search",
+        "multi-channel"
+      ],
+      "requirements": {
+        "hiclaw": ">=1.0.0",
+        "bash": ">=4.0",
+        "jq": "optional"
+      },
+      "configuration": {
+        "knowledge_dir": {
+          "type": "string",
+          "required": true,
+          "description": "Directory to store conversation knowledge",
+          "default": "/root/hiclaw-fs/shared/knowledge/conversations"
+        }
+      },
+      "commands": [
+        {
+          "command": "/加载",
+          "aliases": ["/load", "/打开"],
+          "description": "Load a conversation topic"
+        },
+        {
+          "command": "/记录",
+          "aliases": ["/record", "/保存"],
+          "description": "Record a conversation"
+        },
+        {
+          "command": "/搜索",
+          "aliases": ["/search", "/查找"],
+          "description": "Search conversations"
+        },
+        {
+          "command": "/列表",
+          "aliases": ["/list", "/最近"],
+          "description": "List recent conversations"
+        },
+        {
+          "command": "/总结",
+          "aliases": ["/summarize"],
+          "description": "Summarize conversations"
+        },
+        {
+          "command": "/导出",
+          "aliases": ["/export"],
+          "description": "Export conversations"
+        }
+      ]
+    }
+  ]
+}
